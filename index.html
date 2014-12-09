@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ru" data-ng-app="compositionsApp">
+<head>
+    <meta charset="utf-8">
+    <title>1chess.org</title>
+    <style>
+        [data-ng-cloak], .data-ng-cloak {
+            display: none !important;
+        }
+        .preloading {
+            text-align: center;
+        }
+    </style>
+    <link rel="stylesheet" href="/static/app/vendor/chessboardjs/chessboard.css?1"/>
+    <link rel="stylesheet" href="/static/app/vendor/bootstrap/3.1.1/bootstrap.css?1"/>
+    <link rel="stylesheet" href="/static/app/css/styles.css?1"/>
+    <link rel="stylesheet" href="/static/app/css/styles-vk.css?1"/>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div id="header" class="navbar navbar-default navbar-fixed-top" role="navigation" data-ng-controller="CompositionHeadController">
+            <div class="container">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/#/me">1chess.org</a>
+
+                <div class="collapse navbar-collapse navbar-ex1-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="home-profile"><a href="/#/me">Мой Профиль</a></li>
+                        <li class="players-online"><a href="/#/online">Игроки онлайн ({{online_count?online_count:0}})</a></li>
+                        <li class="player-friends-top"><a href="/#/friends">Топ друзей</a></li>
+                        <li class="education dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Обучение <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li class="coaches-list"><a href="/coaches/">Список тренеров</a></li>
+                                <li class="schools-list"><a href="/schools/">Список школ</a></li>
+                                <li class="books-list"><a href="/books/">Список литературы</a></li>
+                                <li class="compositions"><a href="/compositions/">Шахматные задачи</a></li>
+                            </ul>
+                        </li>
+
+
+
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-xs-9 col-md-9 container">
+                <div data-ng-view id="content"></div>
+            </div>
+
+
+
+            <div data-ng-controller='GamePanelRightMessageController' class="col-xs-3 col-md-3" id="game-panel-right-message">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title" ng-click="showPopup()" ng-init="show=false">Сообщения <span class="badge">{{messages.length}}</span></h3>
+                    </div>
+
+                        <div class="panel-body" data-ng-class="{ 'alert-info': message.color==0,
+                                                            'alert-success': message.color==1,
+                                                            'alert-warning': message.color==2,
+                                                            'alert-danger': message.color==3}" role="alert">
+                            {{message.msg}}
+                        </div>
+
+                </div>
+
+
+            </div>
+        </div>
+        <footer>
+            <p>&copy;<a href="http://1chess.org">1chess.org</a></p>
+        </footer>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="/static/app/lib/sockjs-0.3.js?2"></script>
+<script type="text/javascript" src="/static/app/lib/jquery.js?2"></script>
+<script type="text/javascript" src="/static/app/lib/lodash.min.js?2"></script>
+<script type="text/javascript" src="/static/app/vendor/angularjs/1.3.1/angular.js?2"></script>
+<script type="text/javascript" src="/static/app/vendor/angularjs/1.3.1/angular-route.js?2"></script>
+<script type="text/javascript" src="/static/app/vendor/angularjs/1.3.1/angular-resource.js?2"></script>
+<script type="text/javascript" src="/static/app/vendor/angularjs/1.3.1/angular-animate.js?2"></script>
+<script type="text/javascript" src="/static/app/vendor/angularjs/1.3.1/angular-cookies.js?2"></script>
+<script type="text/javascript" src="/static/app/vendor/angular-bootstrap/ui-bootstrap.js?2"></script>
+<script type="text/javascript" src="/static/app/vendor/angular-bootstrap/ui-bootstrap-tpls.js?2"></script>
+<script type="text/javascript" src="/static/app/lib/angular-local-storage.js?2"></script>
+<script type="text/javascript" src="/static/app/lib/restangular.js?2"></script>
+<script type="text/javascript" src="/static/app/lib/kinetic-v5.1.0.min.js?2"></script>
+<script type="text/javascript" src="/static/app/vendor/chessboardjs/chessboard.js?2"></script>
+<script type="text/javascript" src="/static/app/lib/chess.js?2"></script>
+
+<script type="text/javascript" src="/js/compositions-app.js?2"></script>
+<script type="text/javascript" src="/js/compositions-services.js?2"></script>
+<script type="text/javascript" src="/js/compositions-controllers.js?2"></script>
+
+
+</body>
+</html>

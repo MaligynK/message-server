@@ -1,0 +1,565 @@
+@import url("/static/app/vendor/pgn4web/fonts/pgn4web-font-ChessSansPiratf.css");
+@import url("/static/app/vendor/pgn4web/fonts/pgn4web-font-LiberationSans.css");
+
+body {
+    font-family: source-sans-pro, sans-serif;
+    padding-top: 80px;
+    /*font-size: 15px; */
+    /*padding-top: 60px;*/
+    /*padding-bottom: 40px;*/
+}
+
+.nav, .pagination, .carousel, .panel-title a {
+    cursor: pointer;
+}
+
+@media (max-width: 1200px) {
+    h2, .h2{
+        font-size: 16px;
+    }
+    h6, .h6{
+        font-size: 8px;
+    }
+}
+
+
+
+.noborder {
+    border: 0;
+}
+
+
+
+
+.invite-float  {
+    display:none;
+    z-index:999;  /*поверх чата*/
+    text-decoration:none;
+    position:fixed;
+    top:55px;
+    right:60px;
+    outline:none;
+    display: inline;
+}
+
+.vkads-block  {
+    z-index:777;  /*поверх чата*/
+    text-decoration: none;
+    position: absolute;
+    top:55px;
+    outline:none;
+    display: inline;
+}
+
+@media only screen and (min-width: 1900px) {
+  .vkads-block-sizes {
+      right: 240px;
+  }
+}
+
+@media only screen and (min-width: 1700px) and (max-width: 1900px){
+    .vkads-block-sizes {
+        right: 140px;
+    }
+}
+
+@media only screen and (min-width: 1450px) and (max-width: 1700px){
+    .vkads-block-sizes {
+        right: 15px;
+    }
+}
+@media only screen and (max-width: 1450px) {
+    .vkads-block-sizes {
+        display: none;
+    }
+}
+
+#toTop-area-cursor {
+    display:none;
+    text-decoration:none;
+    position:fixed;
+    left:0px;
+    top: 0;
+    width: 10%;
+    height: 100%;
+    outline:none;
+    display: block;
+    opacity: 1;
+    cursor: pointer;
+}
+
+#toTop-block {
+    display:none;
+    text-decoration:none;
+    position:fixed;
+    left:0px;
+    top: 0px;
+    outline:none;
+    display: block;
+    opacity: 1;
+
+}
+
+#toTop-text{
+    text-decoration:none;
+    position:fixed;
+    left: 10px;
+    top: 55px;
+    width: 10%;
+    height: 5%;
+    outline:none;
+    display: block;
+
+}
+
+
+#toTop-area-cursor:hover #toTop-block{
+    opacity: 0.1;
+    width: 7%;
+    height: 100%;
+    background-color: cornflowerblue;
+}
+
+
+
+
+
+.icon-refresh-animate {
+    -webkit-animation-name: rotateThis;
+    -webkit-animation-duration: .5s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -o-animation-name: rotateThis;
+    -o-animation-duration: .5s;
+    -o-animation-iteration-count: infinite;
+    -o-animation-timing-function: linear;
+    -moz-animation-name: rotateThis;
+    -moz-animation-duration: .5s;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    -ms-animation-name: rotateThis;
+    -ms-animation-duration: .5s;
+    -ms-animation-iteration-count: infinite;
+    -ms-animation-timing-function: linear;
+    animation-name: rotateThis;
+    animation-duration: .5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes rotateThis {
+    from { -webkit-transform: scale( 1 ) rotate( 0deg );   }
+    to   { -webkit-transform: scale( 1 ) rotate( 360deg ); }
+}
+
+@-webkit-keyframes rotateThis {
+    from { -webkit-transform: scale( 1 ) rotate( 0deg );   }
+    to   { -webkit-transform: scale( 1 ) rotate( 360deg ); }
+}
+
+@-o-keyframes rotateThis {
+    from { -o-transform: scale( 1 ) rotate( 0deg );   }
+    to   { -o-transform: scale( 1 ) rotate( 360deg ); }
+}
+
+@-moz-keyframes rotateThis {
+    from { -moz-transform: scale( 1 ) rotate( 0deg );   }
+    to   { -moz-transform: scale( 1 ) rotate( 360deg ); }
+}
+@-ms-keyframes rotateThis {
+    from { -moz-transform: scale( 1 ) rotate( 0deg );   }
+    to   { -moz-transform: scale( 1 ) rotate( 360deg ); }
+}
+
+
+.animate.ng-enter,
+.animate.ng-leave
+{
+    -webkit-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -moz-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -ms-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -o-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    text-overflow: clip;
+    white-space:nowrap;
+}
+
+.animate.ng-leave.ng-leave-active,
+.animate.ng-enter {
+    opacity: 0;
+    width: 0px;
+    height: 0px;
+}
+
+.animate.ng-enter.ng-enter-active,
+.animate.ng-leave {
+    opacity: 1;
+    width: 150px;
+    height: 30px;
+}
+
+.btn-block-center {
+    display: inline-block;
+}
+
+.middle-size {
+    font-size: 1.3em;
+}
+
+.scroll-it {
+    max-height: 800px;
+    overflow-y: scroll;
+    padding-right: 10px;
+}
+
+.wrap-it {
+    white-space : pre-wrap;
+}
+/* start pgn4web */
+.move, .variation, .commentMove {
+    font-family: 'pgn4web ChessSansPiratf', 'pgn4web Liberation Sans', sans-serif;
+}
+.moveOn { border : 1px solid silver }
+.highlightWhiteSquare { background-color : #ffff00 }
+.highlightBlackSquare { background-color : #ffe222 }
+/* end pgn4web */
+
+/* start chessboard js */
+
+/* white square */
+.white-1 {
+    background-color: #f3f3f3;
+    color: #b58863;
+}
+
+/* black square */
+.black-1 {
+    background-color: #7389b6;
+    color: #f0d9b5;
+}
+
+/* white square */
+.white-2 {
+    background-color: #e0d070;
+    color: #b58863;
+}
+
+/* black square */
+.black-2 {
+    background-color: #70a070;
+    color: #f0d9b5;
+}
+
+/* white square */
+.white-3 {
+    background-color: #d0c0a0;
+    color: #b58863;
+}
+
+/* black square */
+.black-3 {
+    background-color: #a08050;
+    color: #f0d9b5;
+}
+
+/* white square */
+.white-4 {
+    background-color: #d0e0d0;
+    color: #b58863;
+}
+
+/* black square */
+.black-4 {
+    background-color: #80a0a0;
+    color: #f0d9b5;
+}
+
+/* white square */
+.white-5 {
+    background-color: #e0d8b8;
+    color: #b58863;
+}
+
+/* black square */
+.black-5 {
+    background-color: #047c24;
+    color: #f0d9b5;
+}
+
+/* white square */
+.white-6 {
+    background-color: #ffdb86;
+    color: #b58863;
+}
+
+/* black square */
+.black-6 {
+    background-color: #ffa200;
+    color: #f0d9b5;
+}
+
+
+.highlight-white {
+    -webkit-box-shadow: inset 0 0 3px 3px yellow;
+    -moz-box-shadow: inset 0 0 3px 3px yellow;
+    box-shadow: inset 0 0 3px 3px yellow;
+}
+.highlight-black {
+    -webkit-box-shadow: inset 0 0 3px 3px blue;
+    -moz-box-shadow: inset 0 0 3px 3px blue;
+    box-shadow: inset 0 0 3px 3px blue;
+}
+
+.highlight-click {
+    -webkit-box-shadow: inset 0 0 3px 3px #4cff4c;
+    -moz-box-shadow: inset 0 0 3px 3px #4cff4c;
+    box-shadow: inset 0 0 3px 3px #4cff4c;
+}
+
+.highlight-premove {
+    -webkit-box-shadow: inset 0 0 3px 3px #ff0000;
+    -moz-box-shadow: inset 0 0 3px 3px #ff0000;
+    box-shadow: inset 0 0 3px 3px #ff0000;
+}
+
+/* chessboardjs styles override */
+.highlight2-9c5d2 {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+.nopad {
+    padding: 0 !important;
+}
+
+.nomargin {
+    margin: 0 !important;
+}
+
+.width-50 {
+    width: 50px;
+}
+
+/*
+.bs-example {
+    content: "Примерный рассчёт рейтинга(результат может отличаться).";
+    position: relative;
+    padding: 45px 15px 15px;
+    margin: 0 -15px 15px;
+}
+*/
+
+@media (min-width: 768px) {
+    .bs-example {
+        margin-left: 0;
+        margin-right: 0;
+        background-color: #fff;
+        border-width: 1px;
+        border-color: #ddd;
+        border-radius: 4px 4px 0 0;
+        box-shadow: none;
+    }
+
+    .bs-example {
+        position: relative;
+        padding: 45px 15px 15px;
+        margin: 0 -15px 15px;
+        background-color: #fafafa;
+        box-shadow: inset 0 3px 6px rgba(0, 0, 0, .05);
+        border-color: #e5e5e5 #eee #eee;
+        border-style: solid;
+        border-width: 1px 0;
+    }
+}
+
+
+.btn{
+    white-space:normal !important;
+    max-width:200px;
+}
+
+/*
+.img-animated-pulsing {
+    -webkit-animation: pulsate 5s ease-out;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation: pulsate 5s ease-out;
+    -moz-animation-iteration-count: infinite;
+    -ms-animation: pulsate 5s ease-out;
+    -ms-animation-iteration-count: infinite;
+    -o-animation: pulsate 5s ease-out;
+    -o-animation-iteration-count: infinite;
+    animation: pulsate 5s ease-out;
+    animation-iteration-count: infinite;
+
+    opacity: 0.0
+}
+@-webkit-keyframes pulsate {
+    0% { opacity: 0.2;}
+    50% {opacity: 1.0;}
+    100% {opacity: 0.2;}
+}
+
+@-moz-keyframes pulsate {
+    0% { opacity: 0.2;}
+    50% {opacity: 1.0;}
+    100% {opacity: 0.2;}
+}
+
+@-ms-keyframes pulsate {
+    0% { opacity: 0.2;}
+    50% {opacity: 1.0;}
+    100% {opacity: 0.2;}
+}
+
+@-o-keyframes pulsate {
+    0% { opacity: 0.2;}
+    50% {opacity: 1.0;}
+    100% {opacity: 0.2;}
+}
+
+@keyframes pulsate {
+    0% { opacity: 0.2;}
+    50% {opacity: 1.0;}
+    100% {opacity: 0.2;}
+}
+*/
+
+/* end chessboard js */
+
+/* GamePanelRightBoard */
+.wrap{
+    white-space:normal !important;
+}
+/* end of GamePanelRightBoard */
+
+/* profile css */
+.panelhover:hover {
+    background-color: #E9EDF1;
+    cursor: pointer;
+    cursor: hand;
+}
+/* end of profile css*/
+/*
+.dropdown-menu {
+    max-height: 400px;
+    overflow: auto;
+    width: 230px;
+}
+
+.list-item {
+    padding-top: 6px;
+    padding-left: 56px;
+}
+
+.no-reports {
+    display: none;
+}
+*/
+
+/* chat */
+.chat
+{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.chat li
+{
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px dotted #B3A9A9;
+}
+
+.chat li.left .chat-body
+{
+    margin-left: 60px;
+}
+
+.chat li.right .chat-body
+{
+    margin-right: 60px;
+}
+
+.chat li .chat-body p
+{
+    margin: 0;
+    color: #777777;
+    word-wrap: break-word;
+}
+
+.panel .slidedown .glyphicon, .chat .glyphicon
+{
+    margin-right: 5px;
+}
+
+.chat-panel .panel-body
+{
+    overflow-y: scroll;
+    height: 500px !important;
+}
+
+.chat-panel ::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+}
+
+.chat-panel ::-webkit-scrollbar
+{
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+.chat-panel ::-webkit-scrollbar-thumb
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #555;
+}
+
+/* end of chat */
+
+/* settings */
+.settings-container {
+    position:relative;
+    float:left;
+}
+
+.settings-img {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+/* end of settings*/
+
+.overlay {
+    position:absolute;
+    z-index:12;
+    top:0;
+    left:0;
+    width:100%;
+    text-align:center;
+}
+
+.modal-open {
+    overflow: auto;
+}
+
+.alpha-d2270 {
+    color: black;
+    left: 48%;
+    align:center;
+    bottom: -20px;
+}
+
+.numeric-fc462 {
+    color: black;
+    top: 35%;
+    left: -15px;
+
+}
+

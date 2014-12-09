@@ -1,0 +1,49 @@
+<div class="row">
+
+    <div class="col-md-12">
+
+        <canvas  id="square1" hidden></canvas>
+        <canvas  id="square2" hidden></canvas>
+        <div id='img_container' hidden></div>
+
+        <div class="panel panel-default" style="padding-bottom: 20px;">
+            <div class="panel-body">
+
+                    <div class="panel panel-default panel-body">
+                        <p style="max-width: 200px; margin: 0 auto 10px;">
+                            <button data-ng-click="showComposition(0)" type="button" class="btn-block btn btn-primary"
+                                popover="Создайте уникальную задачу для игроков" popover-placement="right" popover-trigger="mouseenter">
+                                Создать задачу
+                            </button>
+                            <button data-ng-if="content.admin" data-ng-click="approveComposition()" type="button" class="btn-block btn btn-danger"
+                                popover="Получить список неподтвержденных задач. Если вы не администратор, сообщите нам об ошибке!" popover-placement="right" popover-trigger="mouseenter">
+                                {{ list?'Вернуться к списку':'Подтверждения задач' }}
+                            </button>
+                        </p>
+                        <input class="form-control"  data-ng-model="search" placeholder="Поиск по задачам">
+                    </div>
+
+
+                <div data-ng-repeat="composition in compositions | filter:filtration track by composition.id">
+                    <div class="carousel panel panel-default panel-body" data-ng-click="showComposition(composition.id)">
+                        <div class="media">
+                            <div class="pull-left">
+                                <img class="media-object" data-ng-src='{{::composition.imgs}}' data-ng-if="composition.imgs" alt=''>
+                            </div>
+                            <div class="media-body">
+
+                                <h3><p>{{::composition.id}} - {{ ::composition.author_first_name }} {{ ::composition.author_last_name}} ({{::composition.turns}} {{ (composition.turns>4)?'ходов':'хода'  }})</p></h3>
+                                <p>{{::composition.description}}</p>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+

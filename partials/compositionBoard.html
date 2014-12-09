@@ -1,0 +1,136 @@
+<div class="row">
+
+    <div class="panel panel-default"  id="settingsboard">
+        <div class="panel-body" data-ng-if="composition.id == 0">
+            <div>
+                <div class="col-md-2">
+                    <h4>FEN формат</h4>
+                </div>
+                <div class="col-md-4">
+                    <input data-ng-model="newFen" id='idFen' class="form-control" placeholder="8/8/8/8/8/8/8/8 w - - 0 1" value=''>
+                </div>
+                <div class="col-md-2">
+                    <button data-ng-click="setBoard(newFen)" type="button" class="btn btn-default btn-primary"
+                        popover="Введите FEN в поле выше и нажмите кнопку" popover-placement="bottom" popover-trigger="mouseenter">
+                        Задать FEN
+                    </button>
+                </div>
+                <div class="col-md-2">
+                    <h4>До мата</h4>
+                </div>
+                <div class="col-md-2">
+                    <select class="form-control ng-pristine ng-valid" id='idTurn' data-ng-model="newTurn">
+                        <option value="1">Один ход</option>
+                        <option value="2">Два хода</option>
+                        <option value="3">Три хода</option>
+                        <option value="4">Четыре хода</option>
+                        <option value="5">Пять ходов</option>
+                    </select>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="btn-group col-md-5">
+                    <button data-ng-click="clearBoard()" type="button" class="btn btn-default btn-primary"
+                        popover="Очистить доску от фигур" popover-placement="bottom" popover-trigger="mouseenter">
+                        Пустая доска
+                    </button>
+                    <button data-ng-click="startBoard()" type="button" class="btn btn-default btn-primary"
+                        popover="Разместите фигуры в позицию для игры" popover-placement="bottom" popover-trigger="mouseenter">
+                        Стартовая позиция
+                    </button>
+                    <button data-ng-click="revertBoard()" type="button" class="btn btn-default btn-primary"
+                        popover="Установить позицию последнего успешного анализа" popover-placement="bottom" popover-trigger="mouseenter">
+                        Позиция анализа
+                    </button>
+                </div>
+                <div class="col-md-1">
+                    <button data-ng-click="analyzeBoard(newTurn)" type="button" class="btn btn-default btn-primary" style="right:0px"
+                        popover="Проанализировать текущую позицию" popover-placement="bottom" popover-trigger="mouseenter">
+                        Анализ
+                    </button>
+                </div>
+                <div class="col-md-2">
+                    <button data-ng-click="sendBoard(description)" data-ng-show="goodBoard" type="button" class="btn btn-warning"
+                        popover="Отправить проанализиванную задачу на подтверждение" popover-placement="bottom" popover-trigger="mouseenter">
+                        Отправить задачу
+                    </button>
+                </div>
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-2">
+                    <button data-ng-click="orientationBoard()" type="button" class="btn btn-default btn-primary"
+                        popover="Игрок будет решать задачу за другую сторону" popover-placement="bottom" popover-trigger="mouseenter">
+                        Играть за {{(player == 'w')?'черных':'белых'}}
+                    </button>
+                </div>
+            </div>
+            <div class="panel-body col-md-12">
+                <textarea data-ng-model="description" class="form-control" placeholder="Описание задачи"> </textarea>
+            </div>
+
+        </div>
+
+        <div class="panel-body" data-ng-if="composition.id > 0">
+            <div class="col-md-4">
+                <h4>{{composition.author_first_name}} {{composition.author_last_name}}</h4>
+            </div>
+            <div class="col-md-5">
+                <h4>{{composition.player}} ставят мат через {{composition.turns}} {{(composition.turns > 4)?' ходов':' хода'}}</h4>
+
+                <div data-ng-if="composition.status === 0">
+                    <button data-ng-click="approveBoard()" type="button" class="btn btn-default btn-danger" popover-trigger="mouseenter"
+                        popover="Сделать задачу доступной для пользователей" popover-placement="bottom">
+                        Подтвердить
+                    </button>
+                    <button data-ng-click="deleteBoard()" type="button" class="btn btn-default btn-danger" popover-trigger="mouseenter"
+                        popover="Удалить из списка подтверждений" popover-placement="bottom">
+                        Удалить
+                    </button>
+                    <button data-ng-click="analyzeBoard(composition.turns)" type="button" class="btn btn-default btn-warning" style="right:0px"
+                        popover="Очередность ходов, приводящая к победе, будет указана под доской" popover-placement="bottom" popover-trigger="mouseenter">
+                        Анализ
+                    </button>
+                </div>
+
+            </div>
+            <div class="col-md-3">
+                <button data-ng-click="revertBoard()" type="button" class="btn btn-primary center-block"
+                    popover="Начать решение заново" popover-placement="bottom" popover-trigger="mouseenter">
+                    Начальная позиция</button>
+            </div>
+            <div class="panel-body col-md-12">
+                {{composition.description}}
+            </div>
+            <div class="panel-body" data-ng-if="composition.status === 0">
+                <div class="col-md-10">
+                    <textarea data-ng-model="newDescription" class="form-control"></textarea>
+                </div>
+                <div class="col-md-2">
+                    <button data-ng-click="saveDescription(newDescription)" type="button" class="btn btn-default btn-warning" style="right:0px"
+                            popover="Изменить текущее описание" popover-placement="bottom" popover-trigger="mouseenter">
+                        Сохранить
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div style="height: 30px;">
+        <h3 align="center">{{ message }}</h3>
+    </div>
+
+    <div id="boardComposition" class="center-block"></div>
+    <br>
+    <div>
+        <h6 align="center">{{ composition.fen_current }}</h6>
+    </div>
+     <ol>
+        <li data-ng-repeat="variant in variants">
+            {{variant}}
+        </li>
+     </ol>
+
+
+</div>

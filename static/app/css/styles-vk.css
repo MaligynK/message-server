@@ -1,0 +1,11 @@
+@media (max-width: 1000px){
+    body, .panel-title, .form-control{
+        font-size : 11px;
+    }
+    .btn{
+        font-size : 11px;
+    }
+    h2, .h2 {
+        font-size : 18px;
+    }
+}

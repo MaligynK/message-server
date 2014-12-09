@@ -1,0 +1,21 @@
+<div class="modal-header">
+    <h3 class="panel-title" ng-init="show=false">Сообщения <span class="badge">{{messages.length}}</span></h3>
+</div>
+<div class="modal-body">
+    <div style="max-height: 420px; overflow-y: scroll;">
+        <div data-ng-repeat="message in messages track by message.id" >
+            <div class="alert" data-ng-class="{
+                        'alert-info': message.color==0,
+                        'alert-success': message.color==1,
+                        'alert-warning': message.color==2,
+                        'alert-danger': message.color==3}" role="alert">
+                {{message.msg}}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok()">Ок</button>
+</div>
+
+
